@@ -81,11 +81,10 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    let blankstr: string = "";
-    const value: string = question.options.map(
-        (word) => (blankstr += "\n" + "- " + word),
-    );
-    return "# " + question.name + "\n" + question.body + blankstr;
+    const optionsList = question.options
+        .map((word) => "\n" + "- " + word)
+        .join("");
+    return "# " + question.name + "\n" + question.body + optionsList;
 }
 
 /**
